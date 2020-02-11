@@ -7,11 +7,12 @@ public class ContextoDeTeste {
 
 	private ScreenObjectManager screenObjectManager;
 	private AndroidDriverManager androidDriverManager;
-	
+	private ContextoDeCenario contextoDeCenario;
 
 	public ContextoDeTeste() throws Exception {
 		androidDriverManager = new AndroidDriverManager();
-		screenObjectManager = new ScreenObjectManager(androidDriverManager.iniciaDriver());
+		screenObjectManager = new ScreenObjectManager(androidDriverManager.iniciaApp());
+		contextoDeCenario = new ContextoDeCenario();
 	}
 
 	public AndroidDriverManager getAndroidDriverManager() {
@@ -20,5 +21,9 @@ public class ContextoDeTeste {
 
 	public ScreenObjectManager getScreenObjectManager() {
 		return screenObjectManager;
+	}
+
+	public ContextoDeCenario getContextoDeCenario() {
+		return contextoDeCenario;
 	}
 }

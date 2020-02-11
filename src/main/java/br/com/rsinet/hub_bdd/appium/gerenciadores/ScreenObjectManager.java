@@ -1,13 +1,10 @@
 package br.com.rsinet.hub_bdd.appium.gerenciadores;
 
-import org.openqa.selenium.WebElement;
-
 import br.com.rsinet.hub_bdd.appium.screenFactory.HomeScreen_SOF;
 import br.com.rsinet.hub_bdd.appium.screenFactory.LoginScreen_SOF;
 import br.com.rsinet.hub_bdd.appium.screenFactory.ProductScreen_SOF;
 import br.com.rsinet.hub_bdd.appium.screenFactory.RegisterScreen_SOF;
 import br.com.rsinet.hub_bdd.appium.screenFactory.SearchScreen_SOF;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class ScreenObjectManager {

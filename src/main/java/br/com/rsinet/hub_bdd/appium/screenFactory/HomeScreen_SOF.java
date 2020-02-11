@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.rsinet.hub_bdd.appium.gerenciadores.AndroidDriverManager;
 import io.appium.java_client.android.AndroidDriver;
 
 public class HomeScreen_SOF {

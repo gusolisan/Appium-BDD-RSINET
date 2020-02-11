@@ -21,7 +21,7 @@ public class SearchScreen_SOF {
 
 //	elementos da pagina de cadastro do aplicativo:
 
-	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Headphones\"]/android.widget.LinearLayout/android.widget.GridView/android.widget.RelativeLayout[1]/android.widget.TextView[1]")
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewProductName")
 	private WebElement primeiroProduto;
 
 	@FindBy(how = How.XPATH, using = "//android.widget.RelativeLayout[@content-desc=\"Headphones\"]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ImageView")
@@ -36,16 +36,24 @@ public class SearchScreen_SOF {
 	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView[3]")
 	private WebElement applyFiltro;
 
-	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[6]/android.widget.LinearLayout/android.widget.TextView")
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[6]/android.widget.LinearLayout/android.widget.TextView\r\n"
+			+ "")
 	private WebElement filtroConnector;
 
-	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[6]/android.widget.LinearLayout/android.widget.TextView")
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.ExpandableListView/android.widget.LinearLayout[4]/android.widget.LinearLayout/android.widget.TextView\r\n"
+			+ "")
 	private WebElement filtroConnector_Bluetooth;
+
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[2]/android.widget.TextView")
+	private WebElement nomeDoProdutoNaTelaDeCompra;
+
+	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.Button")
+	private WebElement botaoAdicionaAoCarrinho;
 
 //	ações dos elementos:
 
 	public String nomePrimeiroProduto() {
-		return primeiroProduto.getText();
+		return wait.until(ExpectedConditions.elementToBeClickable(primeiroProduto)).getText();
 	}
 
 	public void clicaPrimeiroProduto() {
@@ -77,6 +85,10 @@ public class SearchScreen_SOF {
 		wait.until(ExpectedConditions.elementToBeClickable(applyFiltro)).click();
 	}
 
+	public void clicaBotaoAdicionaAoCarrinho() {
+		wait.until(ExpectedConditions.elementToBeClickable(botaoAdicionaAoCarrinho)).click();
+	}
+	
 //	Metodos para asserts:
 
 	public boolean mensagemProdutoNaoEncontradoAparece() {
@@ -91,5 +103,9 @@ public class SearchScreen_SOF {
 				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
 						+ produto + "\").instance(0))")))
 				.isDisplayed();
+	}
+
+	public String nomeDoProdutoNaTela() {
+		return nomeDoProdutoNaTelaDeCompra.getText();
 	}
 }

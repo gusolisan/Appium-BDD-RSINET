@@ -7,11 +7,9 @@ import cucumber.api.java.pt.Quando;
 public class LoginScreen_Steps {
 
 	private LoginScreen_SOF loginScreen;
-	private ContextoDeTeste contextoDeTeste;
 
 	public LoginScreen_Steps(ContextoDeTeste contexto) {
-		contextoDeTeste = contexto;
-		loginScreen = contextoDeTeste.getScreenObjectManager().getLoginScreen();
+		loginScreen = contexto.getScreenObjectManager().getLoginScreen();
 	}
 	
 	@Quando("^tocar na opcao de realizar um novo cadastro$")

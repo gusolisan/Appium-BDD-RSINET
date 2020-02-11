@@ -13,16 +13,16 @@ public class AndroidDriverManager {
 	private AndroidDriver driver;
 
 	@SuppressWarnings("rawtypes")
-	public AndroidDriver iniciaDriver() throws Exception {
+	public AndroidDriver iniciaApp() throws Exception {
 		if (driver == null) {
 
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability("deviceName", "DrGusPhone");
-		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("appPackage", "com.Advantage.aShopping");
-		capabilities.setCapability("appActivity", ".SplashActivity");
-		capabilities.setCapability("newCommandTimeOut", "120");
-		URL url = new URL("http://127.0.0.1:4723/wd/hub");
+			DesiredCapabilities capabilities = new DesiredCapabilities();
+			capabilities.setCapability("deviceName", "DrGusPhone");
+			capabilities.setCapability("platformName", "Android");
+			capabilities.setCapability("appPackage", "com.Advantage.aShopping");
+			capabilities.setCapability("appActivity", ".SplashActivity");
+			capabilities.setCapability("newCommandTimeOut", "120");
+			URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
 			driver = new AndroidDriver<MobileElement>(url, capabilities);
 
