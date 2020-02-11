@@ -1,8 +1,6 @@
 package br.com.rsinet.hub_bdd.appium.gerenciadores;
 
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -11,37 +9,28 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class AndroidDriverManager {
 
-	private AndroidDriver<MobileElement> driver;
-	private DesiredCapabilities caps;
+	@SuppressWarnings("rawtypes")
+	private AndroidDriver driver;
 
-	public AndroidDriverManager() {
-		caps = new DesiredCapabilities();
-	}
-
-	public AndroidDriver<MobileElement> driverOn() throws MalformedURLException {
+	@SuppressWarnings("rawtypes")
+	public AndroidDriver iniciaDriver() throws Exception {
 		if (driver == null) {
-			caps.setCapability("deviceName",
-					LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getCapability_nomeDoAparelho());
-			caps.setCapability("platformVersion",
-					LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getCapability_versaoDaPlataforma());
-			caps.setCapability("platformName",
-					LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getCapability_nomeDaPlataforma());
-			caps.setCapability("appPackage",
-					LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getCapability_capsPacoteDoApp());
-			caps.setCapability("appActivity",
-					LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getCapability_capsAtividadeDoApp());
-			caps.setCapability("newCommandTimeOut",
-					LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getCapability_capsComandoDeEspera());
 
-			driver = new AndroidDriver<MobileElement>(
-					new URL(LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getCapability_servidor()), caps);
-			driver.manage().timeouts().implicitlyWait(
-					LeitorDeConfigsManager.getInstancia().getLeitorDeConfigs().getImplicitlyWait(), TimeUnit.SECONDS);
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+		capabilities.setCapability("deviceName", "DrGusPhone");
+		capabilities.setCapability("platformName", "Android");
+		capabilities.setCapability("appPackage", "com.Advantage.aShopping");
+		capabilities.setCapability("appActivity", ".SplashActivity");
+		capabilities.setCapability("newCommandTimeOut", "120");
+		URL url = new URL("http://127.0.0.1:4723/wd/hub");
+
+			driver = new AndroidDriver<MobileElement>(url, capabilities);
+
 		}
 		return driver;
 	}
 
-	public AndroidDriver<MobileElement> driverOff() {
+	public AndroidDriver encerra() {
 		if (driver != null) {
 			driver.quit();
 		}

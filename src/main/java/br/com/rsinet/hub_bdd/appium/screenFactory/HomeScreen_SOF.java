@@ -1,19 +1,19 @@
 package br.com.rsinet.hub_bdd.appium.screenFactory;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class HomeScreen_SOF {
 
 	private WebDriverWait wait;
 
-	public HomeScreen_SOF(AndroidDriver<MobileElement> driver) {
+	public HomeScreen_SOF(AndroidDriver<WebElement> driver) {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 10);
 	}
@@ -21,37 +21,37 @@ public class HomeScreen_SOF {
 //	elementos da pagina principal do aplicativo:
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.ImageView[1]")
-	private MobileElement menu;
+	private WebElement menu;
 
 	@FindBy(how = How.XPATH, using = "//android.support.v4.widget.DrawerLayout[@content-desc=\"Main Menu\"]/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.TextView")
-	private MobileElement menuDoUsuario;
+	private WebElement menuDoUsuario;
 
 	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.TextView[2]")
-	private MobileElement botaoDeCadastro;
+	private WebElement botaoDeCadastro;
 
 	@FindBy(how = How.XPATH, using = "//android.support.v4.widget.DrawerLayout[@content-desc=\"Main Menu\"]/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.TextView[2]")
-	private MobileElement botaoDeslogar;
+	private WebElement botaoDeslogar;
 
 	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[1]")
-	private MobileElement confirmaDeslog;
+	private WebElement confirmaDeslog;
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/editTextSearch")
-	private MobileElement campoDePesquisa;
+	private WebElement campoDePesquisa;
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewSearch")
-	private MobileElement botaoPesquisar;
+	private WebElement botaoPesquisar;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.ImageView")
-	private MobileElement botaoHeadphones;
+	private WebElement botaoHeadphones;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.ImageView")
-	private MobileElement botaoLaptop;
+	private WebElement botaoLaptop;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]/android.widget.ImageView")
-	private MobileElement botaoTablets;
+	private WebElement botaoTablets;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[4]/android.widget.ImageView")
-	private MobileElement botaoMice;
+	private WebElement botaoMice;
 
 //	ações dos elementos:
 
@@ -61,10 +61,6 @@ public class HomeScreen_SOF {
 
 	public void clicaMenuDoUsuario() {
 		wait.until(ExpectedConditions.elementToBeClickable(menuDoUsuario)).click();
-	}
-
-	public void clicaBotaoDeCadastro() {
-		wait.until(ExpectedConditions.elementToBeClickable(botaoDeCadastro)).click();
 	}
 
 	public void clicaBotaoDeslogar() {

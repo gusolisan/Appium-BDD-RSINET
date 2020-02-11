@@ -1,20 +1,23 @@
 package br.com.rsinet.hub_bdd.appium.screenFactory;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.offset.PointOption;
 
 public class RegisterScreen_SOF {
 
-	private AndroidDriver<MobileElement> driver;
+	private AndroidDriver driver;
 	private WebDriverWait wait;
 
-	public RegisterScreen_SOF(AndroidDriver<MobileElement> driver) {
+	public RegisterScreen_SOF(AndroidDriver<WebElement> driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 5);
 	}
@@ -22,46 +25,59 @@ public class RegisterScreen_SOF {
 //	elementos da pagina de cadastro do aplicativo:
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.EditText")
-	private MobileElement nomeUsuario;
+	private WebElement nomeUsuario;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.EditText")
-	private MobileElement email;
+	private WebElement email;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.EditText")
-	private MobileElement senha;
+	private WebElement senha;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[4]/android.widget.RelativeLayout/android.widget.EditText")
-	private MobileElement confirmaSenha;
+	private WebElement confirmaSenha;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.EditText")
-	private MobileElement nome;
+	private WebElement nome;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.EditText")
-	private MobileElement sobrenome;
+	private WebElement sobrenome;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText")
-	private MobileElement telefone;
+	private WebElement telefone;
 
-	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.TextView[2]")
-	private MobileElement pais;
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewCountriesTitle")
+	private WebElement paisDoUsuario;
 
-	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.EditText")
-	private MobileElement estado;
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.EditText\r\n"
+			+ "")
+	private WebElement estado;
 
-	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText")
-	private MobileElement endereco;
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText\r\n"
+			+ "")
+	private WebElement endereco;
 
-	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.EditText")
-	private MobileElement cidade;
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.EditText\r\n"
+			+ "")
+	private WebElement cidade;
 
-	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[2]/android.widget.EditText")
-	private MobileElement cep;
+	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[2]/android.widget.EditText\r\n"
+			+ "")
+	private WebElement cep;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.CheckBox[2]")
-	private MobileElement botaoTermos;
+	private WebElement botaoTermos;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button")
-	private MobileElement botaoRegistrarCadastro;
+	private WebElement botaoRegistrarCadastro;
+
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/switchLocation")
+	private WebElement gerarLocalAutomatico;
+
+	private WebElement paisDesejado(String nomeDoPais) {
+		return driver.findElementByAndroidUIAutomator(
+				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
+						+ nomeDoPais + "\").instance(0))");
+	}
 
 //	ações dos elementos:
 
@@ -93,18 +109,24 @@ public class RegisterScreen_SOF {
 		wait.until(ExpectedConditions.elementToBeClickable(telefone)).sendKeys(telefoneDoUsuario);
 	}
 
-	public void rolarTelaAteDeterminadaPosicao(String posicao) {
-		driver.findElementByAndroidUIAutomator(
-				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
-						+ posicao + "\").instance(0))");
+	public void redirecionaTela() {
+		TouchAction action = new TouchAction(driver);
+		action.press(PointOption.point(668, 1030)).moveTo(PointOption.point(672, 387)).release().perform();
 	}
 
-	public void selecionaPais(String nomeDoPais) {
-		wait.until(ExpectedConditions.elementToBeClickable(pais)).click();
-		driver.findElementByAndroidUIAutomator(
-				"new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""
-						+ nomeDoPais + "\").instance(0))")
-				.click();
+	public void selecionaEnderecoAutomatico() {
+		gerarLocalAutomatico.click();
+	}
+
+	public void selecionaPais(String nomeDoPais) throws InterruptedException {
+		wait.until(ExpectedConditions.elementToBeClickable(paisDoUsuario)).click();
+
+		boolean achouPais = false;
+
+		while (achouPais == false) {
+			paisDesejado(nomeDoPais).click();
+			achouPais = true;
+		}
 	}
 
 	public void preencheCampoEstado(String estadoOuProvincia) {
@@ -125,5 +147,10 @@ public class RegisterScreen_SOF {
 
 	public void submeteCadastro() {
 		wait.until(ExpectedConditions.elementToBeClickable(botaoRegistrarCadastro)).click();
+	}
+
+	public void rolarPaginaParaEndereco() {
+		TouchAction action = new TouchAction(driver);
+		action.press(PointOption.point(860, 1400)).moveTo(PointOption.point(814, 400)).release().perform();
 	}
 }
