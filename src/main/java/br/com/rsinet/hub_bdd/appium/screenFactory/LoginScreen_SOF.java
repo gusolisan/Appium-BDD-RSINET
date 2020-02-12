@@ -7,13 +7,14 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class LoginScreen_SOF {
 
 	private WebDriverWait wait;
 	
-	public LoginScreen_SOF(AndroidDriver<WebElement> driver) {
+	public LoginScreen_SOF(AndroidDriver<MobileElement> driver) {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 10);
 	}

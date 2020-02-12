@@ -1,5 +1,7 @@
 package br.com.rsinet.hub_bdd.appium.stepDefinitions;
 
+import com.cucumber.listener.Reporter;
+
 import br.com.rsinet.hub_bdd.appium.contextos.ContextoDeTeste;
 import br.com.rsinet.hub_bdd.appium.screenFactory.LoginScreen_SOF;
 import cucumber.api.java.pt.Quando;
@@ -15,6 +17,7 @@ public class LoginScreen_Steps {
 	@Quando("^tocar na opcao de realizar um novo cadastro$")
 	public void tocar_na_opcao_de_realizar_um_novo_cadastro() throws Throwable {
 		loginScreen.clicaBotaoDeCadastro();
+		Reporter.addStepLog("Botao criar nova conta acionado");
 	}
 	
 }

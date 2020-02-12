@@ -8,13 +8,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileBy;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class SearchScreen_SOF {
 
 	private WebDriverWait wait;
 
-	public SearchScreen_SOF(AndroidDriver<WebElement> driver) {
+	public SearchScreen_SOF(AndroidDriver<MobileElement> driver) {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 10);
 	}

@@ -7,14 +7,14 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.rsinet.hub_bdd.appium.gerenciadores.AndroidDriverManager;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
 public class HomeScreen_SOF {
 
 	private WebDriverWait wait;
 
-	public HomeScreen_SOF(AndroidDriver<WebElement> driver) {
+	public HomeScreen_SOF(AndroidDriver<MobileElement> driver) {
 		PageFactory.initElements(driver, this);
 		wait = new WebDriverWait(driver, 10);
 	}

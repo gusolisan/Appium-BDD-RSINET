@@ -13,8 +13,9 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features", glue = {
-		"br.com.rsinet.hub_bdd.appium.stepDefinitions" }, plugin = {
-				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }, monochrome = true)
+		"br.com.rsinet.hub_bdd.appium.stepDefinitions" }, tags = {
+				"@CenarioPositivo_Cadastro, @CenarioNegativo_Cadastro, @CenarioPositivo_PesquisaPorClique, @CenarioNegativo_PesquisaPorToque, @CenarioPositivo_PesquisaPorCampo, @CenarioNegativo_PesquisaPorCampo" }, plugin = {
+						"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }, monochrome = true)
 public class TestRunner {
 	@AfterClass
 	public static void gerarExtentReport() {
